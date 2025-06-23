@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+# add a new
 from django.contrib.auth.models import AbstractUser, User
 
 
@@ -17,8 +18,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
+# add new model to sign-up page
 class User(AbstractUser):
+    username = models.CharField(unique=True)
     email = models.EmailField(unique=True)
     state = models.CharField(null=True,blank=True)
     city = models.CharField(null=True,blank=True)
@@ -26,4 +28,4 @@ class User(AbstractUser):
     image = models.ImageField(null=True,blank=True)
 
     def __str__(self):
-        return self.email
+        return self.username

@@ -21,18 +21,22 @@
             <div>
                 <h1><a href="polls">Polls</a></h1>
             </div>
-            <div class="signup_btn">
-                <button type="button"><a href="{% url 'sign_up' %}">Sign up</a></button>
-                <button type="button">Login</button>
-            </div>
-
+            {% if request.user.is_authenticated %}
             <div>
-                {% if user.is_authenticated %}
+                <div class="logout_btn">
+                    <button type="button"><a href="{% url 'sign_out' %}">Logout</a></button>
+                    <button type="button"><a href="{% url 'profile' %}">Profile</a></button>
+                </div>
                 <a href="{% url 'post_new' %}" class="top-menu">
                     {% include './icons/file-earmark-plus.svg' %}
                 </a>
-                {% endif %}
             </div>
+            {% else %}
+            <div class="signup_btn">
+                <button type="button"><a href="{% url 'sign_up' %}">Sign up</a></button>
+                <button type="button"><a href="{% url 'login' %}">Login</a></button>
+            </div>
+            {% endif %}
 
         </div>
     </header>

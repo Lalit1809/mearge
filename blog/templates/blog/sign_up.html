@@ -9,10 +9,11 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext">
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
 </head>
 
 <body>
-    <form method="post" class="signupform" enctype="multipart/form-data" style="border:1px solid #ccc">
+    <form method="post" class="signupform" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="container">
             <h1>Sign Up</h1>
@@ -23,7 +24,7 @@
             <input type="text" placeholder="User Name" name="username" required id="user_name">
 
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required id="email">
+            <input type="email" placeholder="Enter Email" name="email" required id="email">
 
             <label for="state"><b>State</b></label>
             <input type="text" placeholder="State" name="state" required id="state">

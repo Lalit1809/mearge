@@ -40,15 +40,23 @@ h4 {
     color: #ffffff;
     float: right;
     font-size: 26pt;
-    margin-right: 20px;
+    margin-right: 100px;
 }
 .signup_btn{
+    /* position: absolute; */
+    padding: 10px 10px;
+    /* margin-left: 67%; */
+    /* margin-top: 10px; */
+    /* gap: 20px; */ 
+}
+
+.logout_btn{
+    margin-top: 5px ;
+    margin-left: 25px;
     position: absolute;
     padding: 10px 10px;
-    margin-left: 67%;
-    margin-top: 10px;
-    gap: 20px;
-    
+
+
 }
 
 .post {
