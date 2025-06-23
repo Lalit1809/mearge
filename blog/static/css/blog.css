@@ -1,5 +1,8 @@
+body{
+    background-color: #d3cece;
+}
 .page-header {
-    background-color: #C25100;
+    background-color: #e86305;
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
@@ -42,16 +45,17 @@ h4 {
     font-size: 26pt;
     margin-right: 100px;
 }
-.signup_btn{
+
+.signup_btn {
     /* position: absolute; */
     padding: 10px 10px;
     /* margin-left: 67%; */
     /* margin-top: 10px; */
-    /* gap: 20px; */ 
+    /* gap: 20px; */
 }
 
-.logout_btn{
-    margin-top: 5px ;
+.logout_btn {
+    margin-top: 5px;
     margin-left: 25px;
     position: absolute;
     padding: 10px 10px;
@@ -59,7 +63,7 @@ h4 {
 
 }
 
-.post {
+/* .post {
     margin-bottom: 70px;
 }
 
@@ -71,7 +75,7 @@ h4 {
 .post > .date,
 .post > .actions {
     float: right;
-}
+} */
 
 .btn-secondary,
 .btn-secondary:visited {
@@ -84,4 +88,31 @@ h4 {
 .btn-secondary:hover {
     color: #FFFFFF;
     background-color: #C25100;
+}
+
+.col {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.card-img-top {
+    border-radius: 55%;
+    margin-left: 32%;
+    margin-top: 30px;
+    width: 35%;
+    height: 110px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card {
+    /* box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2); */
+    box-shadow:  0 5px 20px rgb(67, 66, 66);
+    border-radius: 100px 100px 20px;
+    background-color: #eae6e6;
+   
 }
