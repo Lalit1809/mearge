@@ -3,15 +3,17 @@ from django.db import models
 from django.utils import timezone
 # add a new
 from django.contrib.auth.models import AbstractUser, User
-
+from django_extensions.db.fields import AutoSlugField
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
     image= models.ImageField(upload_to='post-images/')
+    thumbnail_image= models.ImageField(upload_to='post-images/')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    slug = AutoSlugField(populate_from='title')
 
     def publish(self):
         self.published_date = timezone.now()

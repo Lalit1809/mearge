@@ -1,6 +1,7 @@
-body{
+body {
     background-color: #d3cece;
 }
+
 .page-header {
     background-color: #e86305;
     margin-top: 0;
@@ -24,9 +25,6 @@ h4 {
     font-family: 'Lobster', cursive;
 }
 
-.date {
-    color: #828282;
-}
 
 .save {
     float: right;
@@ -63,26 +61,18 @@ h4 {
 
 }
 
-/* .post {
+.post {
+    margin-bottom: 10px;
     margin-bottom: 70px;
 }
 
-.post h2 a,
-.post h2 a:visited {
-    color: #000000;
-}
-
-.post > .date,
-.post > .actions {
-    float: right;
-} */
-
 .btn-secondary,
 .btn-secondary:visited {
+    position: absolute;
     color: #C25100;
     background: none;
     border-color: #C25100;
-    margin-left: 15px;
+    margin-left: 88%;
 }
 
 .btn-secondary:hover {
@@ -93,8 +83,9 @@ h4 {
 .col {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 7rem;
     gap: 40px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .card-img-top {
@@ -111,8 +102,94 @@ h4 {
 
 .card {
     /* box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2); */
-    box-shadow:  0 5px 20px rgb(67, 66, 66);
-    
+    box-shadow: 0 5px 20px rgb(67, 66, 66);
+
     background-color: #eae6e6;
-   
+
+}
+
+/* for poest_detail page */
+.title_img {
+    border-radius: 100%;
+    width: 13%;
+    height: 68px;
+    
+}
+
+.tit_im {
+    border-radius: 100%;
+    width: 66px;
+    height: 66px;
+}
+
+.post_title {
+    position: absolute;
+    margin-top: -4.5%;
+    margin-left: 4.5%;
+    font-size: 40px;
+    font-family: 'Lobster', cursive;
+
+}
+
+.date {
+    margin-top: 25%;
+    margin-left: 49%;
+    position: absolute;
+    color: #828282;
+}
+
+
+
+.thum_im {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.post-detail{
+    /* border: 2px solid #000; */
+    position: absolute ;
+    width: 37%;
+    height: 25%;
+    margin-top: 28%;
+    margin-bottom: 5%;
+    margin-left: 24%;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+.comment-box{
+    margin-right: 9%;
+  width: 70%;
+  margin-top: 50%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.last-detail{
+    margin-top: 40%;
+    text-align: center;
+    width: 100%;
+    height: 8%;
+    background-color: black;
+    color: white;
 }

@@ -11,7 +11,7 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
 <div class="card" style="width: 20rem;">
-    <a href="{% url 'post_detail' pk=post.pk %}">
+    <a href="{% url 'post_detail' slug=post.slug %}">
         <img src="{{ post.image.url }}" class="card-img-top" alt="...">
     </a>
     <div class="card-body">
@@ -19,7 +19,7 @@
         <time>{{ post.published_date }}</time>
         <hr>
         <p class="card-text">{{post.text |truncatechars:50}}</p>
-        <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Read more</a>
+        <a href="{% url 'post_detail' slug=post.slug %}" class="btn btn-primary">Read more</a>
     </div>
 
 </div>

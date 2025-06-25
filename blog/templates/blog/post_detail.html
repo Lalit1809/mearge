@@ -1,20 +1,36 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <article class="post">
-        <aside class="actions">
-            {% if user.is_authenticated %}
-     <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
-        {% include './icons/pencil-fill.svg' %}
-     </a>
+<article class="post">
+    <aside class="actions">
+        {% if user.is_authenticated %}
+        <a class="btn btn-secondary" href="{% url 'post_edit' slug=post.slug %}">
+            {% include './icons/pencil-fill.svg' %}
+        </a>
         {% endif %}
-        </aside>
-        {% if post.published_date %}
-            <time class="date">
-                {{ post.published_date }}
-            </time>
-        {% endif %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </article>
+    </aside>
+    <div class="title_img">
+        <img class="tit_im" src="{{ post.image.url }}" alt="">
+    </div>
+    <p class="post_title">{{ post.title }}</p>
+    <div class="container-tm" style="width: 37%; height: 44%; margin-left: 24%; margin-top:31px; background-color:  red; position: absolute;">
+    <img class="thum_im" src="{{ post.thumbnail_image.url }}" alt="">
+    </div>
+    {% if post.published_date %}
+    <time class="date">
+        {{ post.published_date }}
+    </time>
+    {% endif %}
+     <p class="post-detail">{{ post.text|linebreaksbr }}</p>
+</article>
+<!-- <div class="comment-box">
+    <label for="subject">comment</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div> -->
+<footer class="last-detail">
+    <p>This is the last line of this page</p>
+</footer>
 {% endblock %}
