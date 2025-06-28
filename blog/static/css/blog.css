@@ -3,7 +3,7 @@ body {
 }
 
 .page-header {
-    background-color: #e86305;
+    background-color: rgb(18, 14, 14);
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
@@ -16,6 +16,20 @@ body {
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    box-shadow: 1px 2px 5px white;
+    background-color: rgb(18, 14, 14);
+}
+
+button:hover {
+    background-color: rgb(52, 44, 44);
 }
 
 h1,
@@ -44,8 +58,9 @@ h4 {
     margin-right: 100px;
 }
 
-.signup_btn {
+.sign_bt {
     /* position: absolute; */
+    background-color: red;
     padding: 10px 10px;
     /* margin-left: 67%; */
     /* margin-top: 10px; */
@@ -72,7 +87,7 @@ h4 {
     color: #C25100;
     background: none;
     border-color: #C25100;
-    margin-left: 88%;
+    margin-left: 78%;
 }
 
 .btn-secondary:hover {
@@ -110,10 +125,11 @@ h4 {
 
 /* for poest_detail page */
 .title_img {
+    margin-left: -9rem;
     border-radius: 100%;
     width: 13%;
     height: 68px;
-    
+
 }
 
 .tit_im {
@@ -125,7 +141,7 @@ h4 {
 .post_title {
     position: absolute;
     margin-top: -4.5%;
-    margin-left: 4.5%;
+    margin-left: -4rem;
     font-size: 40px;
     font-family: 'Lobster', cursive;
 
@@ -133,7 +149,7 @@ h4 {
 
 .date {
     margin-top: 25%;
-    margin-left: 49%;
+    margin-left: 43%;
     position: absolute;
     color: #828282;
 }
@@ -145,51 +161,160 @@ h4 {
     width: 100%;
     height: 100%;
 }
-.post-detail{
+
+.post-detail {
     /* border: 2px solid #000; */
-    position: absolute ;
+    position: absolute;
     width: 37%;
     height: 25%;
     margin-top: 28%;
     margin-bottom: 5%;
-    margin-left: 24%;
+    margin-left: 18%;
 }
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* margin-top: 6px;
+    margin-bottom: 16px; */
+    resize: vertical;
 }
+
 input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+    background-color: #09f114;
 }
-.comment-box{
-    margin-right: 9%;
-  width: 70%;
-  margin-top: 50%;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+
+.comment-box {
+    margin-left: 3%;
+    margin-right: 10%;
+    width: 87%;
+    margin-top: 42%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
 }
-.last-detail{
-    margin-top: 40%;
+
+.last-detail {
+    margin-left: -10%;
+    margin-top: 80%;
     text-align: center;
-    width: 100%;
+    width: 110%;
     height: 8%;
     background-color: black;
     color: white;
+}
+
+.cat {
+    color: black;
+    text-decoration: none;
+}
+
+.cat:hover {
+    color: rgb(100, 96, 96);
+}
+
+.tag-btn {
+    text-decoration: none;
+    color: black;
+}
+
+.tag-btn:hover {
+    color: rgb(100, 96, 96);
+}
+
+.cat-card {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: -7%;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+    transition: 0.3s;
+    width: 9%;
+}
+
+/* Comment form */
+
+.comment-sec {
+   
+    margin-left: 10px;
+    width: 98%;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+}
+
+.rep-btn {
+    border-radius: 20px;
+    border: none;
+    color: white;
+    margin-bottom: 0.5%;
+    width: 10%;
+    height: 35px;
+    background-color: #04AA6D;
+}
+
+.rep-btn:hover {
+    box-shadow: 0 5px 10px #aba7a7;
+    background-color: #04d186;
+    opacity: 1;
+}
+
+.form-popup {
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 5px 20px rgb(67, 66, 66);
+    position: absolute;
+    top: 120%;
+    right: 14.5%;
+    border: 1px solid black;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+    width: 100%;
+    padding: 8px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text],
+.form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    border-radius: 40px;
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover {
+    opacity: 1;
 }

@@ -1,6 +1,21 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<div class="cat-card">
+    <h5>Category</h5>
+    <p>
+        {% for cat in category %}
+        <a href="{% url 'category' slug=post.category.slug %}" class="cat">{{cat}}</a>
+        {% endfor %}
+    </p>
+    <h5>Tag</h5>
+    <p>
+        {% for tag in tag.all %}
+        <a class="tag-btn" href="{% url 'tag' tag.slug %}">{{ tag }}</a> <br>
+        {% endfor %}
+    </p>
+</div>
+
 <article class="post">
     <aside class="actions">
         {% if user.is_authenticated %}
@@ -13,24 +28,56 @@
         <img class="tit_im" src="{{ post.image.url }}" alt="">
     </div>
     <p class="post_title">{{ post.title }}</p>
-    <div class="container-tm" style="width: 37%; height: 44%; margin-left: 24%; margin-top:31px; background-color:  red; position: absolute;">
-    <img class="thum_im" src="{{ post.thumbnail_image.url }}" alt="">
+    <div class="container-tm"
+        style="width: 37%; height: 44%; margin-left: 18%; margin-top:31px; background-color:  red; position: absolute;">
+        <img class="thum_im" src="{{ post.thumbnail_image.url }}" alt="">
     </div>
     {% if post.published_date %}
     <time class="date">
         {{ post.published_date }}
     </time>
     {% endif %}
-     <p class="post-detail">{{ post.text|linebreaksbr }}</p>
+    <p class="post-detail">{{ post.text|linebreaksbr |truncatechars:430}}</p>
 </article>
 <!-- <div class="comment-box">
     <label for="subject">comment</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <textarea type="text" name="subject" placeholder="Write something.." style="height:100px"></textarea>
 
     <input type="submit" value="Submit">
-  </form>
+    
 </div> -->
-<footer class="last-detail">
+<!-- Comment form -->
+<!-- <button class="open-button" onclick="openForm()">Open Comment</button> -->
+
+<div class="form-popup" id="myForm">
+    <div style="padding-left: 20px;">
+        <h3>Comments</h3>
+    </div>
+    {% for comments in comment %}
+     <div class="comment-sec">
+        <p>Name:-{{ comments.name }} <br>Email:-{{ comments.email }} <br>Comment:-{{ comments }}</p>
+        <button type="submit" class="rep-btn">Reply</button>
+    </div> <br>
+    {% endfor %}
+
+    <form method="post" enctype="multipart/form-data" class="form-container">
+        {% csrf_token %}
+
+        <label for="Name"><b>Name</b></label>
+        <input type="text" placeholder="name" name="name" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <label for="subject">comment</label>
+        <textarea type="text" name="test" placeholder="Write something.."></textarea>
+
+        <button type="submit" class="btn">comment</button>
+
+    </form>
+    <!-- <footer class="last-detail">
     <p>This is the last line of this page</p>
-</footer>
+</footer> -->
+</div>
+
 {% endblock %}

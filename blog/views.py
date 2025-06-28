@@ -1,7 +1,7 @@
 from .forms import PostForm
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, User
+from .models import *
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
@@ -10,6 +10,22 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
+
+
+# create a new views for category
+def category(request, slug):
+    print('inside cat viewwwwww')
+    category = get_object_or_404(Category, slug=slug)
+    print(category,'got this category')
+    posts = Post.objects.filter(category=category)
+    print(posts,'pppppppppppppppp')
+    return render(request, 'blog/category.html', { 'posts': posts,})
+
+# create a new views for tag
+def tag(request, slug):
+    tag = get_object_or_404(Tag, slug=slug)
+    posts = Post.objects.filter(tag=tag)
+    return render(request, 'blog/tag.html', {'posts': posts})
 
 # Create your views here.
 def post_list(request):
@@ -21,7 +37,18 @@ def post_list(request):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    post_id = post.id
+    comments = Comment.objects.filter(post=post_id )
+    print(comments,"comments")
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email  = request .POST.get ('email')
+        text = request.POST.get('test')
+        comment = Comment.objects.create(post=post,name=name,email=email,text=text)
+    categorys = Category.objects.all()
+    tags = Tag.objects.all()
+    context = { 'comment':comments,'category':categorys,'tag':tags, 'post':post}
+    return render(request, 'blog/post_detail.html',context)
 
 
 def post_new(request):
@@ -133,6 +160,10 @@ def edit_page(request):
         return redirect("profile")
         
     return render(request, 'blog/edit.html', context)
+
+
+
+
 
 
     

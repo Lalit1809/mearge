@@ -15,9 +15,13 @@ urlpatterns = [
     path('login/', views.login_page, name='login'),
     # create a new urls for sign_out page
     path('logout/',views.sign_out,name='sign_out'),
-    # create a bew urls for profile page
+    # create a new urls for profile page
     path('profile/',views.profile_page,name='profile'),
     # cerate a new urls for edit page
     path('edit/',views.edit_page,name='edit'),
+    # create a new url for category page
+    path('category/<str:slug>/',views.category,name='category'),
+    # create a new url for tag page
+    path('tag/<str:slug>/',views.tag,name='tag'),
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

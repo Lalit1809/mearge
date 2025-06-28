@@ -5,7 +5,27 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser, User
 from django_extensions.db.fields import AutoSlugField
 
+
+# create a new model for category 
+
+class Category( models.Model):
+    name = models.CharField(max_length=200)
+    slug = AutoSlugField(populate_from='name')
+    
+    def __str__(self):
+        return self.name
+      
+# create a new model for a tag
+class Tag(models.Model):
+    name = models.CharField(max_length=200)
+    slug = AutoSlugField(populate_from='name')
+    def __str__(self):
+        return self.name
+
+# model for post
 class Post(models.Model):
+    tag = models.ManyToManyField(Tag)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
@@ -32,3 +52,18 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+# create a new model for  comment box 
+class Comment(models.Model):
+    post = models.ForeignKey(Post,on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=100,null=True,blank=True)
+    text = models.CharField()
+    email = models.EmailField()
+    created = models.DateTimeField(default=timezone.now)
+    update = models.DateTimeField(default=timezone.now)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE,null=True,blank=True)
+
+    def __str__(self):
+        return self.text
+
+

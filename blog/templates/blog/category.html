@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>category-page</title>
+</head>
+<body>
+{% block content %}
+{% for post in posts %}
+<div class="card" style="width: 20rem;">
+    <a href="{% url 'post_detail' slug=post.slug %}">
+        <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+    </a>
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <time>{{ post.published_date }}</time>
+        <p>Tag:-{% for tag in post.tag.all %} {{tag}} {% endfor %}</p>
+        <p>Category:-{{post.category}}</p>
+        <hr>
+        <p class="card-text">{{post.text |truncatechars:50}}</p>
+        <a href="{% url 'post_detail' slug=post.slug %}" class="btn btn-primary">Read more</a>
+    </div>
+
+</div>
+
+{% endfor %}
+{% endblock %}
+</body>
+</html>
