@@ -38,13 +38,23 @@ def post_list(request):
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post_id = post.id
-    comments = Comment.objects.filter(post=post_id )
+    comments = Comment.objects.filter(post=post_id, parent=None )
     print(comments,"comments")
     if request.method == "POST":
         name = request.POST.get('name')
         email  = request .POST.get ('email')
-        text = request.POST.get('test')
-        comment = Comment.objects.create(post=post,name=name,email=email,text=text)
+        text = request.POST.get('text')
+        parent_id = request.POST.get('parent_id')
+        print(parent_id,'hii bro')    
+        parent_comment = None
+        if parent_id:
+            try:
+                parent_comment = Comment.objects.get(id=parent_id)
+            except:
+                parent_comment = None
+
+        comment = Comment.objects.create(post=post,name=name,email=email,text=text,parent=parent_comment)
+
     categorys = Category.objects.all()
     tags = Tag.objects.all()
     context = { 'comment':comments,'category':categorys,'tag':tags, 'post':post}

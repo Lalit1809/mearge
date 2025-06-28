@@ -248,7 +248,7 @@ input[type=submit]:hover {
 /* Comment form */
 
 .comment-sec {
-   
+    margin-top: 2%;
     margin-left: 10px;
     width: 98%;
     padding-left: 20px;
@@ -272,7 +272,7 @@ input[type=submit]:hover {
 }
 
 .form-popup {
-    border-radius: 20px;
+    border-radius: 0px;
     background-color: white;
     box-shadow: 0 5px 20px rgb(67, 66, 66);
     position: absolute;
@@ -291,7 +291,8 @@ input[type=submit]:hover {
 
 /* Full-width input fields */
 .form-container input[type=text],
-.form-container input[type=password] {
+.form-container input[type=email],
+.form-container input[type=hidden] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;

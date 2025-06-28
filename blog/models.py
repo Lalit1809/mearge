@@ -57,7 +57,7 @@ class User(AbstractUser):
 class Comment(models.Model):
     post = models.ForeignKey(Post,on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=100,null=True,blank=True)
-    text = models.CharField()
+    text = models.TextField()
     email = models.EmailField()
     created = models.DateTimeField(default=timezone.now)
     update = models.DateTimeField(default=timezone.now)
