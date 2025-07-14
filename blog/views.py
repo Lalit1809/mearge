@@ -16,7 +16,7 @@ from django.views.decorators.csrf import csrf_exempt
 def category(request, slug):
     print('inside cat viewwwwww')
     category = get_object_or_404(Category, slug=slug)
-    print(category,'got this category')
+    print(slug,'got this category')
     posts = Post.objects.filter(category=category)
     print(posts,'pppppppppppppppp')
     return render(request, 'blog/category.html', { 'posts': posts,})
@@ -25,6 +25,7 @@ def category(request, slug):
 def tag(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
     posts = Post.objects.filter(tag=tag)
+    print(tag,'kjhgfdsdfghj')
     return render(request, 'blog/tag.html', {'posts': posts})
 
 # Create your views here.
@@ -38,6 +39,7 @@ def post_list(request):
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post_id = post.id
+    print(post_id,'ye post id h')
     comments = Comment.objects.filter(post=post_id, parent=None )
     print(comments,"comments")
     if request.method == "POST":

@@ -59,11 +59,11 @@
         </p>
     </div> <br>
 
-    <!-- reply -->
+    <!-- reply close-->
     {% for reply in comments.comment_set.all %}
     <p style="margin-left: 20px;">👉 {{ reply.name }} replied: {{ reply.text }}</p>
     {% endfor %}
-    <!-- reply -->
+    <!-- reply close -->
 
     <form method="post" enctype="multipart/form-data" class="form-container">
         {% csrf_token %}
