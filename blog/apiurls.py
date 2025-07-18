@@ -10,9 +10,12 @@ router = DefaultRouter()
 router.register(r'posts', PostViewSet,basename='post')
 router.register(r'categories', CategoryViewSet, basename='category')
 router.register(r'profile', ProfileViewSte,basename='profile')
+router.register(r'user', ProfileViewSte,basename='user')
 
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('register/', UserRegistrationView.as_view(), name='register'),
 
 ]

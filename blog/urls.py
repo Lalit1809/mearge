@@ -24,7 +24,5 @@ urlpatterns = [
     path('category/<str:slug>/',views.category,name='category'),
     # create a new url for tag page
     path('tag/<str:slug>/',views.tag,name='tag'),
-    path('api/login/', UserLoginView.as_view(), name='login'),
-    path('api/register/', UserRegistrationView.as_view(), name='register'),
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
