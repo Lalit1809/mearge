@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'polls',
+    'rest_framework',
+    'rest_framework.authtoken',
     
 ]
 
@@ -127,3 +129,11 @@ AUTH_USER_MODEL = 'blog.User'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Adjust path if needed
 MEDIA_URL = '/media/'  # URL prefix to access media files
+
+# ...
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}

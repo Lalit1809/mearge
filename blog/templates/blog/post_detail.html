@@ -2,16 +2,23 @@
 
 {% block content %}
 <div class="cat-card">
-    <h5>Category</h5>
+    <h5>Category :-</h5>
     <p>
         {% for cat in category %}
-        <a href="{% url 'category' slug=post.category.slug %}" class="cat">{{cat}}</a>
+        <ul>
+        <li><a href="{% url 'category' slug=post.category.slug %}" class="cat">{{cat}}</a></li>
+        </ul>
         {% endfor %}
     </p>
-    <h5>Tag</h5>
+    <h5>Tag :-</h5>
     <p>
         {% for tag in tag.all %}
-        <a class="tag-btn" href="{% url 'tag' tag.slug %}">{{ tag }}</a> <br>
+        <ul>
+            <li>
+                <a class="tag-btn" href="{% url 'tag' tag.slug %}">{{ tag }}</a>
+            </li>
+        </ul>
+        
         {% endfor %}
     </p>
 </div>

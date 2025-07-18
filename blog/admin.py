@@ -8,7 +8,7 @@ from .models import *
 class PostAdmin(admin.ModelAdmin):
     
     fieldsets = [
-        ("Post Information", {"fields": ["title", "slug", "author", "category", "tag"]}),
+        ("Post Information", {"fields": ["author", "category", "tag","title"]}),
         ("Content Section", {"fields": ["text", "image", "thumbnail_image"]}),
         ("Date Details", {"fields": ["created_date", "published_date"], "classes": ["collapse"]}),
          

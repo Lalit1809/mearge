@@ -11,7 +11,6 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
 
-
 # create a new views for category
 def category(request, slug):
     print('inside cat viewwwwww')
