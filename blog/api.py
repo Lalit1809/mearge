@@ -1,3 +1,4 @@
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status , viewsets 
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -9,10 +10,16 @@ from .models import *
 
 # create a api for Profile using MedelViewStes
 class ProfileViewSte(viewsets.ModelViewSet):
-    queryset = User.objects.all()
     serializer_class = ProfileSerializer
-   
+    permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        # Return only the profile of the logged-in user
+        return User.objects.filter(id=self.request.user.id)
+
+    def get_object(self):
+        # Force every action to return only the logged-in user object
+        return self.request.user
    
 
 
@@ -39,8 +46,9 @@ class UserLoginView(GenericAPIView):
         print(user,'>>>>>>>>>>>>>>>>')
         # Log in the user (if not already handled in the serializer)
         login(request, user)
+        token, created = Token.objects.get_or_create(user=user)
 
-        return Response({'message': 'Login successful'}, status=status.HTTP_200_OK)
+        return Response({'message': 'Login successful','token': token.key,}, status=status.HTTP_200_OK)
 
 
 

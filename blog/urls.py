@@ -1,15 +1,9 @@
-from django.urls import path,include
+from django.urls import path
 from . import views
 from .api import *
 from .views import *
 from django.conf.urls.static import static
 from django.conf import settings
-from rest_framework.routers import DefaultRouter
-from blog.api import *
-router = DefaultRouter()
-router.register(r'api/posts', PostViewSet)
-router.register(r'api/categories', CategoryViewSet)
-router.register(r'api/profile', ProfileViewSte)
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
@@ -32,6 +26,5 @@ urlpatterns = [
     path('tag/<str:slug>/',views.tag,name='tag'),
     path('api/login/', UserLoginView.as_view(), name='login'),
     path('api/register/', UserRegistrationView.as_view(), name='register'),
-    path('', include(router.urls)),
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

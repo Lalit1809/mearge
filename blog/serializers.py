@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate,login
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username','email','state','city','country','image']
+        fields = ['id','username','email','state','city','country','image']
 
 # create a serializer for category 
 class CategorySerializer(serializers.ModelSerializer):
