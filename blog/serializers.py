@@ -2,6 +2,18 @@ from rest_framework import serializers
 from .models import *
 from django.contrib.auth import authenticate,login
 
+# create a serializer for comments
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
+        
+# create a serilizer for tags
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = '__all__'
+
 # create a serializer for Profile
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:

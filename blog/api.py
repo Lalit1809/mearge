@@ -8,7 +8,17 @@ from rest_framework.views import APIView
 from .serializers import *
 from .models import *
 
-# create a api for Profile using MedelViewStes
+# create a api for comments using a ModelViewSets
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    
+# create a api for tags using a ModelViewStes
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+
+# create a api for Profile using ModelViewStes
 class ProfileViewSte(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]

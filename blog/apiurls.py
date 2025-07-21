@@ -10,6 +10,8 @@ router = DefaultRouter()
 router.register(r'posts', PostViewSet,basename='post')
 router.register(r'categories', CategoryViewSet, basename='category')
 router.register(r'profile', ProfileViewSte,basename='profile')
+router.register(r'tag',TagViewSet,basename='tag')
+router.register(r'comment',CommentViewSet,basename='comment')
 
 
 urlpatterns = [
